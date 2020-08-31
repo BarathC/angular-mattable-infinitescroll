@@ -1,0 +1,15 @@
+table {
+  height: 100%;
+}
+:host {
+  display: grid;
+  height: 100%;
+}
+
+.mat-table{
+  overflow: auto;
+}
+
+.mat-cell {
+  padding: 0 8px;
+}

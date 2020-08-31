@@ -1,0 +1,10 @@
+p {
+  font-family: Lato;
+}
+
+:host {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: min-content minmax(0,1fr);
+}
