@@ -9,7 +9,3 @@ table {
 .mat-table{
   overflow: auto;
 }
-
-.mat-cell {
-  padding: 0 8px;
-}
