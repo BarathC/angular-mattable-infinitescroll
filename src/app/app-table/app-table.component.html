@@ -2,8 +2,6 @@
 cdkDropList
 [cdkDropListData]="dataSource"
 (cdkDropListDropped)="dropTable($event, null)"
-(cdkDragReleased)='dragReleased()'
-
 cdkDropListSortingDisabled=true
 
 >
@@ -26,5 +24,5 @@ cdkDropListSortingDisabled=true
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-  <mat-row cdkDrag cdkDragBoundary='.mat-table' (mouseenter)="fnOnMouseEnter(row)" cdkDragLockAxis='y'[cdkDragData]="row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row cdkDrag cdkDragBoundary='.mat-table' (mouseenter)="fnOnMouseEnter(row)" cdkDragLockAxis='y'[cdkDragData]="row" (cdkDragReleased)='dragReleased()'*matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>

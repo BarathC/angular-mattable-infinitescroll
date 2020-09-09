@@ -14,6 +14,11 @@ table {
   background-color: #E0EEE9;
 }
 
+
+.mat-row:hover{
+  border: 1px dotted blue;
+}
+
 .mat-header-row {
   background-color:#6AB095
 }
