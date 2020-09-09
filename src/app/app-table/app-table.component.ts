@@ -16,6 +16,7 @@ export class AppTableComponent implements OnInit {
   private dataStream: BehaviorSubject<UserDetails[]> = null;
   private arrUserDetails:UserDetails[] = [];
   private oData;
+  public bIsDragActive;
   constructor( private oFakeService:FakeuserService, private renderer: Renderer2) { }
 
   ngOnInit() {
@@ -68,11 +69,12 @@ export class AppTableComponent implements OnInit {
     if(!!this.oTableRef)
       this.renderer.setProperty(this.oTableRef.nativeElement, 'scrollTop', position);
   }
-
+  public fnDragStarted(): void {
+    this.bIsDragActive = true;
+  }
   public dragReleased(event: CdkDragRelease): void {
     console.log('Merge ' + event.source.data.name + ' to ' + this.oData.name)
-
-
+     this.bIsDragActive = false;
   }
 
 

@@ -15,7 +15,7 @@ table {
 }
 
 
-.mat-row:hover{
+.dragactive:hover{
   border: 1px dotted blue;
 }
 
