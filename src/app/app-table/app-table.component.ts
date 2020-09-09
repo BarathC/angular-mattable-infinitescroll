@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { UserDetails, FakeuserService } from '../fake-user.service';
+import {CdkDragDrop} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-table',
@@ -14,7 +15,7 @@ export class AppTableComponent implements OnInit {
   public dataSource:Observable<UserDetails[]>;
   private dataStream: BehaviorSubject<UserDetails[]> = null;
   private arrUserDetails:UserDetails[] = [];
-
+  private oData;
   constructor( private oFakeService:FakeuserService, private renderer: Renderer2) { }
 
   ngOnInit() {
@@ -54,14 +55,23 @@ export class AppTableComponent implements OnInit {
 
   }
 
-  public dropTable(oEvent){
+  public dropTable(oEvent: CdkDragDrop<Observable<UserDetails[]>, any>, dropedOn: UserDetails){
     console.log(oEvent)
+  }
+
+  public fnOnMouseEnter(data){
+    this.oData = data;
   }
 
     //Scroll to position
   private fnScrollTo(position: number): void {
     if(!!this.oTableRef)
       this.renderer.setProperty(this.oTableRef.nativeElement, 'scrollTop', position);
+  }
+
+  public dragReleased(): void {
+    console.log(this.oData)
+
   }
 
 

@@ -1,9 +1,10 @@
 <mat-table #tableref [dataSource]="dataSource" class="mat-elevation-z8" (scroll)='onTableScroll($event)'
 cdkDropList
 [cdkDropListData]="dataSource"
-(cdkDropListDropped)="dropTable($event)"
-cdkDragLockAxis='y'
-cdkDropListSortingDisabled=false
+(cdkDropListDropped)="dropTable($event, null)"
+(cdkDragReleased)='dragReleased()'
+
+cdkDropListSortingDisabled=true
 
 >
   <!-- Name Column -->
@@ -25,5 +26,5 @@ cdkDropListSortingDisabled=false
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-  <mat-row cdkDrag [cdkDragData]="row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row cdkDrag cdkDragBoundary='.mat-table' (mouseenter)="fnOnMouseEnter(row)" cdkDragLockAxis='y'[cdkDragData]="row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
