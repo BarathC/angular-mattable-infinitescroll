@@ -54,6 +54,10 @@ export class AppTableComponent implements OnInit {
 
   }
 
+  public dropTable(oEvent){
+    console.log(oEvent)
+  }
+
     //Scroll to position
   private fnScrollTo(position: number): void {
     if(!!this.oTableRef)

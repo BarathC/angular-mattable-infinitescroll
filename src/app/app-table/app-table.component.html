@@ -1,8 +1,15 @@
-<mat-table #tableref [dataSource]="dataSource" class="mat-elevation-z8" (scroll)='onTableScroll($event)'>
+<mat-table #tableref [dataSource]="dataSource" class="mat-elevation-z8" (scroll)='onTableScroll($event)'
+cdkDropList
+[cdkDropListData]="dataSource"
+(cdkDropListDropped)="dropTable($event)"
+cdkDragLockAxis='y'
+cdkDropListSortingDisabled=false
+
+>
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <mat-cell cdkDragHandle *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
 
   <!-- Email Column -->
@@ -18,5 +25,5 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row cdkDrag [cdkDragData]="row" *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>

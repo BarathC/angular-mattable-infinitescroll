@@ -9,3 +9,11 @@ table {
 .mat-table{
   overflow: auto;
 }
+
+.mat-row {
+  background-color: #E0EEE9;
+}
+
+.mat-header-row {
+  background-color:#6AB095
+}
