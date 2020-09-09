@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { UserDetails, FakeuserService } from '../fake-user.service';
-import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, CdkDragRelease} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-table',
@@ -69,8 +69,9 @@ export class AppTableComponent implements OnInit {
       this.renderer.setProperty(this.oTableRef.nativeElement, 'scrollTop', position);
   }
 
-  public dragReleased(): void {
-    console.log(this.oData)
+  public dragReleased(event: CdkDragRelease): void {
+    console.log('Merge ' + event.source.data.name + ' to ' + this.oData.name)
+
 
   }
 

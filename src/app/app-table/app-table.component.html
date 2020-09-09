@@ -24,5 +24,5 @@ cdkDropListSortingDisabled=true
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-  <mat-row cdkDrag cdkDragBoundary='.mat-table' (mouseenter)="fnOnMouseEnter(row)" cdkDragLockAxis='y'[cdkDragData]="row" (cdkDragReleased)='dragReleased()'*matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row cdkDrag cdkDragBoundary='.mat-table' (mouseenter)="fnOnMouseEnter(row)" cdkDragLockAxis='y'[cdkDragData]="row" (cdkDragReleased)='dragReleased($event)'*matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
